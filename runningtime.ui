@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>632</width>
+    <height>519</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>231</width>
+      <height>381</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="start_Btn">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>80</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>开始</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reset_Btn">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>80</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>复位</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stop_Btn">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>180</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>停止</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="count_Btn">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>180</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>计时</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="show_label">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>50</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Consolas</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_Btn">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>290</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>清空</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back_Btn">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>290</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>返回</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>632</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

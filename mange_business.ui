@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mange_business</class>
+ <widget class="QMainWindow" name="mange_business">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>731</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>序号</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>申报人</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>电话</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>地址</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>事由</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>任务状态</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>410</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>100</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>修改</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="back_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>返回</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>350</y>
+      <width>391</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>50</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>订单状态</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>等待接单</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>上门服务中</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>订单完成</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

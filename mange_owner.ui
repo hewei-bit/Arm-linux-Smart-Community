@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mange_owner</class>
+ <widget class="QMainWindow" name="mange_owner">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>571</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>序号</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>姓名</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>电话</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>账号</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>密码</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>生日</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>地址</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>RFID</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>44</x>
+      <y>370</y>
+      <width>741</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="add_Btn">
+       <property name="text">
+        <string>新增</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="delete_Btn">
+       <property name="text">
+        <string>删除</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="update_Btn">
+       <property name="text">
+        <string>修改</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="back">
+       <property name="text">
+        <string>返回</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>571</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>20</y>
+      <width>139</width>
+      <height>344</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>姓名</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="name_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>电话</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="tele_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>账号</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="account_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>密码</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="password_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>生日</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>地址</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="addr_lineEdit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>RFID</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="RFID_lineEdit"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="SoftKey" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>300</y>
+      <width>651</width>
+      <height>181</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SoftKey</class>
+   <extends>QWidget</extends>
+   <header>softkey.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

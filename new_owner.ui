@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>new_owner</class>
+ <widget class="QMainWindow" name="new_owner">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="SoftKey" name="widget_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>290</y>
+      <width>801</width>
+      <height>191</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="register_Btn">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>370</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>注册</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back_Btn">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>370</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>返回</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>20</y>
+      <width>361</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>25</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>姓名</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>电话</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>登录名</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>密码</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>确认密码</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>RFID</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>生日</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>地址</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>20</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="name_lineEdit">
+         <property name="placeholderText">
+          <string>选填</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="tele_lineEdit">
+         <property name="placeholderText">
+          <string>选填</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="account_lineEdit"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="password_lineEdit"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="password_ms_lineEdit"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="RFID_lineEdit">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>RFID（选填）</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="birth_lineEdit">
+         <property name="placeholderText">
+          <string>选填</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="address_lineEdit">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>选填</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <zorder>register_Btn</zorder>
+   <zorder>back_Btn</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>widget_4</zorder>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SoftKey</class>
+   <extends>QWidget</extends>
+   <header>softkey.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
