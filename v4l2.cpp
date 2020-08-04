@@ -235,10 +235,10 @@ void init_device(pass_data* s)
     }
     CLEAR (s->fmt);
 
-    s->fmt.type		= V4L2_BUF_TYPE_VIDEO_CAPTURE;
-    s->fmt.fmt.pix.width	= 640;
-    s->fmt.fmt.pix.height	= 480;
-    s->fmt.fmt.pix.pixelformat	= V4L2_PIX_FMT_YUYV;
+    s->fmt.type		= V4L2_BUF_TYPE_VIDEO_CAPTURE; //设置对摄像头数据捕获
+    s->fmt.fmt.pix.width	= 640; //设置画面的宽
+    s->fmt.fmt.pix.height	= 480; //设置画面的高
+    s->fmt.fmt.pix.pixelformat	= V4L2_PIX_FMT_YUYV; //设置摄像头格式
     s->fmt.fmt.pix.field	= V4L2_FIELD_INTERLACED;
 
     if (xioctl (s->fd, VIDIOC_S_FMT, &s->fmt) == -1)
@@ -279,6 +279,7 @@ int open_device(pass_data *s)
         return -2;
     }
 
+    //打开摄 像头
     if ((s->fd = open (s->dev_name, O_RDWR, 0)) == -1 )
     {
         fprintf(stderr, "Can't oprn '%s': error %d, %s\n", s->dev_name, errno, strerror(errno));

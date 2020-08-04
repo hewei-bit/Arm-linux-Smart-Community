@@ -9,7 +9,7 @@
 #include "nodepad.h"
 
 #include "mange_owner.h"
-
+#include "advertisement.h"
 #include <QFile>
 #include <QApplication>
 
@@ -68,8 +68,11 @@ int main(int argc, char *argv[])
 //    mange_owner mo;
 //    mo.show();
 
-    login lin;
-    lin.show();
+    advertisement ad;
+    ad.show();
+
+//    login lin;
+//    lin.show();
 
 //    Nodepad np;
 //    np.show();

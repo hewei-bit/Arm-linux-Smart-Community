@@ -53,6 +53,8 @@ void advertisement::skip_advertisement()
 void advertisement::onClicked()
 {
      QMessageBox::information(this,"哈哈","label被点击了");
+
+
 }
 
 
@@ -78,11 +80,12 @@ void advertisement::ad_video()
 void advertisement::on_commandLinkButton_clicked()
 {
     //显示登录界面
-    ((login *)this->parentWidget())->show();
+    login *lg = new login ();
+    lg->show();
 
     ad_video_Process.kill();
     timer->stop();
-
+    delete timer;
     ad_sec = 3;
 
     this->close();

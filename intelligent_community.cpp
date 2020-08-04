@@ -8,11 +8,9 @@
 #include "news.h"
 #include "leisure.h"
 #include "LED.h"
-#include "videodisplay.h"
-
 
 #include "login.h"
-
+#include "videodisplay.h"
 
 
 
@@ -23,7 +21,7 @@ intelligent_community::intelligent_community(QWidget *parent) :
     ui(new Ui::intelligent_community)
 {
     ui->setupUi(this);
-
+printf("%d",__LINE__);
     this->setWindowIcon(QIcon(":/pic/school.png"));
     QImage img;
     img.load(":/pic/school.png");
@@ -31,27 +29,17 @@ intelligent_community::intelligent_community(QWidget *parent) :
     ui->label->setPixmap(originalPixmap.scaled(ui->label->size(),
                          Qt::IgnoreAspectRatio,
                          Qt::SmoothTransformation));
-    this->setObjectName("mainWindow");
-    this->setStyleSheet("#mainWindow{border-image:url(:/pic/manchester.jpg);}");
     //天气信息
-//    ui->widget_2->show();
-
-    ui->widget->setStyleSheet("background-color: rgba(250, 250, 250,0)");
-
     //显示时间
 //    Myclock *mc= new Myclock();
-
     connect(mtimer,&QTimer::timeout,this,&intelligent_community::show_time);
     mtimer->setInterval(1000);
     mtimer->start(1000);
-
-//    mc->setObjectName("mc");
-//    connect(mc,&Myclock::send,this,&intelligent_community::show_time);
-//    mc->start();
-
     // 天气API已连接成功
     http_weather();
-
+//    QTimer *video_timer = new QTimer();
+//    connect(video_timer,&QTimer::timeout,this,&intelligent_community::ad_video);
+//    video_timer->start(1000);
     //播广告
     ad_video();
 
@@ -65,16 +53,21 @@ intelligent_community::~intelligent_community()
 
 void intelligent_community::exit_video()
 {
-    if(in_video_Process.state() == QProcess::Running)
-    {
         in_video_Process.kill();
         in_video_Process.waitForFinished();
-    }
+    in_video_Process.write("quit");
 }
 
 void intelligent_community::ad_video()
 {
-    exit_video();
+
+        if(in_video_Process.state() == QProcess::Running)
+        {
+//            in_video_Process.kill();
+//            in_video_Process.waitForFinished();
+            return ;
+        }
+
     QString cmd = QString("mplayer -slave -quiet "
                           " -geometry 40:120 -zoom -x %1 -y %2 "
                           " -wid %3 "
@@ -85,6 +78,7 @@ void intelligent_community::ad_video()
     qDebug() << "cmd = " << cmd;
 
     in_video_Process.start(cmd);
+
 }
 
 void intelligent_community::run_time()
@@ -244,6 +238,7 @@ void intelligent_community::read_data(QNetworkReply *reply)
 //打开报修服务
 void intelligent_community::on_server_Btn_clicked()
 {
+    exit_video();
     community_service *coms = new community_service();
 
     connect(this,&intelligent_community::sendname,coms,&community_service::getname);
@@ -252,7 +247,6 @@ void intelligent_community::on_server_Btn_clicked()
 //    disconnect(mc,&Myclock::send,this,&intelligent_community::show_time);
     mtimer->stop();
     delete mtimer;
-    exit_video();
 
     coms->show();
     this->close();
@@ -261,6 +255,7 @@ void intelligent_community::on_server_Btn_clicked()
 //打开休闲娱乐
 void intelligent_community::on_leien_Btn_clicked()
 {
+    exit_video();
     leisure *leien = new leisure();
 
     connect(this,&intelligent_community::sendname,leien,&leisure::getname);
@@ -269,14 +264,15 @@ void intelligent_community::on_leien_Btn_clicked()
 //disconnect(mc,&Myclock::send,this,&intelligent_community::show_time);
     mtimer->stop();
     delete mtimer;
-    exit_video();
     leien->show();
+
     this->close();
 }
 
 //
 void intelligent_community::on_selfinfo_Btn_clicked()
 {
+    exit_video();
     selfinfo *sinfo = new selfinfo();
 
     connect(this,&intelligent_community::sendname,sinfo,&selfinfo::getname);
@@ -285,7 +281,6 @@ void intelligent_community::on_selfinfo_Btn_clicked()
 //disconnect(mc,&Myclock::send,this,&intelligent_community::show_time);
     mtimer->stop();
     delete mtimer;
-    exit_video();
     sinfo->show();
     this->close();
 }
@@ -294,6 +289,7 @@ void intelligent_community::on_selfinfo_Btn_clicked()
 //打开新闻
 void intelligent_community::on_news_Btn_clicked()
 {
+    exit_video();
     news *nn = new news ();
 
     connect(this,&intelligent_community::sendname,nn,&news::getname);
@@ -301,7 +297,6 @@ void intelligent_community::on_news_Btn_clicked()
     disconnect(this,&intelligent_community::sendname,nn,&news::getname);
     mtimer->stop();
     delete mtimer;
-    exit_video();
 
     nn->show();
     this->close();
@@ -311,14 +306,14 @@ void intelligent_community::on_news_Btn_clicked()
 //打开监控
 void intelligent_community::on_video_Btn_clicked()
 {
-    VideoDisplay *VD = new VideoDisplay ();
+    exit_video();
+    videodisplay *VD = new videodisplay ();
 
-    connect(this,&intelligent_community::sendname,VD,&VideoDisplay::getname);
+    connect(this,&intelligent_community::sendname,VD,&videodisplay::getname);
     emit sendname(myname);
-    disconnect(this,&intelligent_community::sendname,VD,&VideoDisplay::getname);
+    disconnect(this,&intelligent_community::sendname,VD,&videodisplay::getname);
     mtimer->stop();
     delete mtimer;
-    exit_video();
 
     VD->show();
     this->close();
@@ -328,6 +323,7 @@ void intelligent_community::on_video_Btn_clicked()
 //点灯
 void intelligent_community::on_light_Btn_clicked()
 {
+    exit_video();
     LED *LL = new LED ();
 
     connect(this,&intelligent_community::sendname,LL,&LED::getname);
@@ -335,7 +331,6 @@ void intelligent_community::on_light_Btn_clicked()
     disconnect(this,&intelligent_community::sendname,LL,&LED::getname);
     mtimer->stop();
     delete mtimer;
-    exit_video();
 
     LL->show();
     this->close();
@@ -343,13 +338,15 @@ void intelligent_community::on_light_Btn_clicked()
 
 void intelligent_community::on_back_Btn_clicked()
 {
+
+
+    exit_video();
     login *lg = new login ();
     lg->show();
 //    disconnect(mc,&Myclock::send,this,&intelligent_community::show_time);
 
     mtimer->stop();
     delete mtimer;
-    exit_video();
     this->close();
 }
 
@@ -385,6 +382,7 @@ void intelligent_community::show_time()
 
 void intelligent_community::http_weather()
 {
+    printf("%d",__LINE__);
     manager = new QNetworkAccessManager();
 
     connect(manager,&QNetworkAccessManager::finished,this,&intelligent_community::read_data);
@@ -394,6 +392,7 @@ void intelligent_community::http_weather()
              "&key=6eaaa433d136ff59653d126c67270943");
     QNetworkRequest request(url);
     manager->get(request);
+    printf("%d",__LINE__);
 }
 
 void intelligent_community::setusername(QString name)

@@ -103,8 +103,9 @@ private:
     Ui::intelligent_community *ui;
 //    Myclock *mc = new Myclock();
     QProcess in_video_Process;
-    QTimer *mtimer = new QTimer(this);
+    QTimer *mtimer = new QTimer();
     QNetworkAccessManager *manager;
+    bool play;
 
 };
 

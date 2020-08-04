@@ -119,7 +119,6 @@ void mange_business::on_pushButton_2_clicked()
     //    query.addBindValue("111");
 
         qDebug() <<mid;
-        qDebug() <<sqlupdate;
 
         if(!query.exec())
         {

@@ -359,3 +359,13 @@ void mange_owner::on_name_lineEdit_editingFinished()
 {
 ui->widget->hide();
 }
+
+void mange_owner::on_tableWidget_itemSelectionChanged()
+{
+//    ui->widget->hide();
+}
+
+void mange_owner::on_tableWidget_itemClicked(QTableWidgetItem *item)
+{
+//    ui->widget->show();
+}

@@ -44,7 +44,7 @@ SOURCES += \
         new_owner.cpp \
         news.cpp \
         nodepad.cpp \
-        readRfidId.cpp \
+        photoview.cpp \
         result_mainwindow.cpp \
         runningtime.cpp \
         selfinfo.cpp \
@@ -54,7 +54,6 @@ SOURCES += \
         weatherinfo.cpp
 
 HEADERS += \
-        ISO14443A.h \
         LED.h \
         advertisement.h \
         business_center.h \
@@ -76,7 +75,7 @@ HEADERS += \
         new_owner.h \
         news.h \
         nodepad.h \
-        readrfidid.h \
+        photoview.h \
         result_mainwindow.h \
         runningtime.h \
         selfinfo.h \
@@ -101,6 +100,7 @@ FORMS += \
         new_owner.ui \
         news.ui \
         nodepad.ui \
+        photoview.ui \
         result_mainwindow.ui \
         runningtime.ui \
         selfinfo.ui \

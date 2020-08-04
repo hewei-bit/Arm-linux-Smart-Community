@@ -1,43 +1,45 @@
 #ifndef VIDEODISPLAY_H
 #define VIDEODISPLAY_H
 
-#include <QDialog>
-#include <QtGui>
+#include <QWidget>
 #include "v4l2.h"
-#include <QTcpServer>
-#include <QTcpSocket>
 #include <QTimer>
+#include "photoview.h"
 namespace Ui {
-class VideoDisplay;
+class videodisplay;
 }
 
-class VideoDisplay : public QDialog
+class videodisplay : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit VideoDisplay(QWidget *parent = 0);
-    ~VideoDisplay();
+    explicit videodisplay(QWidget *parent = nullptr);
+    ~videodisplay();
 signals:
     void sendname(QString &name);
 public slots:
     void getname(QString &name);
+    void on_startBtn_clicked();
+    void flushButff();
+
+//    void shotscreen();
+
+
 private slots:
-    void beginCapture();
-    void flushBuff();
-    void savebmpData();
-    void tcp_receive();
-    void on_exitButton_clicked();
+    void on_shotBtn_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
-    Ui::VideoDisplay *ui;
-    pass_data pd;
-    QTimer *timer;
-    QTcpSocket *socket;
-    QTcpServer *tcp_server;
-    int start_tcp;
-    unsigned char *bufrgb;
-    QString mmmname;
+    Ui::videodisplay *ui;
+    pass_data pd; //定义一个相关的摄像头对象
+    photoview *filelist;
+     unsigned char *bufrgb; //获取摄像头数据指针
+     QTimer *timer;
+     QString mmmname;
 };
 
 #endif // VIDEODISPLAY_H

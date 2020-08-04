@@ -13,7 +13,7 @@
 #include <QSqlQueryModel>
 
 
-
+#include <QTableWidgetItem>
 
 namespace Ui {
 class mange_owner;
@@ -66,6 +66,10 @@ private slots:
     void on_name_lineEdit_selectionChanged();
 
     void on_name_lineEdit_editingFinished();
+
+    void on_tableWidget_itemSelectionChanged();
+
+    void on_tableWidget_itemClicked(QTableWidgetItem *item);
 
 private:
     Ui::mange_owner *ui;

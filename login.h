@@ -8,51 +8,6 @@
 #include <QTableWidgetItem>
 #include <QSqlError>
 #include <QtDebug>
-#include <QTimer>
-
-#include <QProcess>
-#include <QtDebug>
-
-#include <QListWidgetItem>
-#include <QTime>
-#include <QTimer>
-#include <QRunnable>
-#include <QtDebug>
-#include <QThread>
-#include <QThreadPool>
-#include <QMutex>
-#include <QPen>
-#include <QPainter>
-#include <QPixmap>
-#include <QImage>
-#include <QMutex>
-#include "readrfidid.h"
-
-
-class RID:public QThread
-{
-    Q_OBJECT
-public:
-    explicit RID(QWidget *parent = nullptr){}
-    ~RID(){}
-    void run() override
-    {
-        while(1)
-        {
-            int id;
-            id = readCardId();
-            qDebug() << "id "<< id;
-            QThread::sleep(1);
-            if(id != 0)
-            {
-              emit send();
-            }
-        }
-    }
-signals:
-    void send();
-};
-
 
 
 namespace Ui {
@@ -67,8 +22,6 @@ public:
     explicit login(QWidget *parent = nullptr);
     ~login();
     void open_database();
-
-    void jump_to_ic();
 
 signals:
     void send(QString name);
@@ -100,13 +53,14 @@ private:
     QString dbname = "./intell_com.db";
 
 //    QString dbname = "../intelligent_community/intell_com.db";
-    RID *rid = new RID();
+
     QSqlDatabase database;
     QSqlQuery sqlQuery;
     QString sqlSelect;
     QString sqlInsert;
     QString sqlupdate;
     QString sqldelete;
+
 };
 
 #endif // LOGIN_H

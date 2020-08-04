@@ -2,32 +2,11 @@
 #include "ui_login.h"
 
 #include "intelligent_community.h"
-#include "advertisement.h"
+
 #include "business_center.h"
 #include "new_owner.h"
 
-
-//开线程读卡！！！！
-#if 0
-int main(void)
-{
-    //读取RFID的ID值
-
-    while(1)
-    {
-
-        readCardId();
-        sleep(1);
-    }
-
-    return 0;
-}
-#endif
-
-
-//放视频文件
-
-
+static int count = 0;
 login::login(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::login)
@@ -41,33 +20,33 @@ login::login(QWidget *parent) :
     ui->pic_label->setPixmap(originalPixmap.scaled(ui->pic_label->size(),
                          Qt::IgnoreAspectRatio,
                          Qt::SmoothTransformation));
-    this->setObjectName("mainWindow");
-    this->setStyleSheet("#mainWindow{border-image:url(:/pic/manchester.jpg);}");
+//    this->setObjectName("mainWindow");
+//    this->setStyleSheet("#mainWindow{border-image:url(:/pic/manchester.jpg);}");
 //    this->setStyleSheet("background-image: url(:/weather/sunny_rain.png);");
 //    this->setStyleSheet("background-color: rgba(255, 250, 242, 25);");
 
     //播广告
-    advertisement *adv = new advertisement(this);
-    adv->show();
-    this->hide();
+//    advertisement *adv = new advertisement(this);
+//    adv->show();
+//    this->hide();
 
     //隐藏键盘
     ui->widget_4->hide();
 
     //打开数据库
-    database = QSqlDatabase::addDatabase("QSQLITE");
-
-    database.setDatabaseName(dbname);
-
-    if(!database.open())
+    if(count == 0)
     {
-        qDebug() << "fail to open database";
+        database = QSqlDatabase::addDatabase("QSQLITE");
+
+        database.setDatabaseName(dbname);
+
+        if(!database.open())
+        {
+            qDebug() << "fail to open database";
+        }
+        count+=1;
     }
 
-
-    rid->setObjectName("rid");
-    connect(rid,&RID::send,this,&login::jump_to_ic);
-    rid->start();
 }
 
 login::~login()
@@ -90,18 +69,6 @@ void login::open_database()
 
 void login::on_out_btn_clicked()
 {
-    this->close();
-}
-
-void login::jump_to_ic()
-{
-    QString username = sqlQuery.value(1).toString();
-    intelligent_community * intc = new intelligent_community();
-    connect(this,&login::send,intc,&intelligent_community::setusername);
-    emit send(username);
-    disconnect(this,&login::send,intc,&intelligent_community::setusername);
-//            database.close();
-    intc->show();
     this->close();
 }
 
@@ -158,7 +125,7 @@ void login::on_owner_Btn_clicked()
     sqlQuery.next();
     QString account = sqlQuery.value(3).toString();
     QString password = sqlQuery.value(4).toString();
-
+    QString username = sqlQuery.value(1).toString();
 
     if(account == input_account)
     {
@@ -169,7 +136,13 @@ void login::on_owner_Btn_clicked()
             //设置文本框的大小
 //            QMessageBox::information(this,QString(" %1 成功").arg(username),"success");
             //跳转
-            jump_to_ic();
+            intelligent_community * intc = new intelligent_community();
+            connect(this,&login::send,intc,&intelligent_community::setusername);
+            emit send(username);
+            disconnect(this,&login::send,intc,&intelligent_community::setusername);
+//            database.close();
+            intc->show();
+            this->close();
         }
         else
         {
